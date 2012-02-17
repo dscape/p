@@ -5,6 +5,12 @@
 ``` js
 var insertAll = require('p');
 
+// pretending we are doing an async call
+function insertElement(data, callback) {
+  var timeout = Math.ceil(Math.random() * 3000);
+  setTimeout(function() { callback(null, data); }, timeout);
+};
+
 insertAll([], Function, function (cb) { cb(); });
 insertAll(function (l,cb) {
   var elem = l.shift(); // head
