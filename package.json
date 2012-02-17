@@ -10,7 +10,6 @@
   }
 , "bugs"        : "http://github.com/dscape/p/issues"
 , "keywords"    :  ["pattern matching", "pattern", "flow", "async"]
-, "devDependencies" :  { "mocha": "*", "should": "*" }
 , "scripts"     :
   { "test"      :
     "./node_modules/mocha/bin/mocha -r should -t 10000 -s 2000  test/index.js"
