@@ -1,17 +1,19 @@
+<a name="pattern"/>
 # pattern
 
-`pattern` is a way to do pattern matching in javascript that helps you do asynchronous iterations. oh and fibers suck.
+`pattern` is a way to do pattern matching in javascript that helps you do asynchronous iterations.
 
 ``` js
-var insertAll = require('p');
+var insertAll = require('p')
+  , _
+  ;
 
 // pretending we are doing an async call
 function insertElement(data, callback) {
-  var timeout = Math.ceil(Math.random() * 3000);
-  setTimeout(function() { callback(null, data); }, timeout);
-};
+  setTimeout(function() { callback(null, data); }, 100);
+}
 
-insertAll([], Function, function (cb) { cb(); });
+insertAll([], _, function (cb) { cb(); });
 insertAll(function (l,cb) {
   var elem = l.shift(); // head
   insertElement(elem, function(err, elem) {
@@ -26,25 +28,39 @@ insertAll([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], function () {
 });
 ```
 
-when you used to do [this].
+[this] is what you normally would do.
 
+<a name="installation"/>
 # installation
 
+<a name="node"/>
 ## node.js
 
 1. install [npm]
 2. `npm install p`
 3. `var p = require('p');`
 
+<a name="browser"/>
 ## browser
 
 1. minimize p.js
 2. load it into your webpage
 
+<a name="disclaimer"/>
+## disclaimer
+
+if you are not familiar with haskell and you love your javascript oo code you better look away right now. this pretty much breaks everything you love and care about in javascript.
+
+`pattern` was made so i could learn some more javascript. it's slow, and certainly not web scale. this software does not obey laws, common best practices or even common sense. it does everything that is wrong in javascript; or at least attempts to. (suggestions are welcome)
+
+i'll probably still use it anyway
+
+<a name="roadmap"/>
 # roadmap
 
 check [issues]
 
+<a name="contribute"/>
 # contribute
 
 everyone is welcome to contribute. patches, bug-fixes, new features
@@ -58,6 +74,7 @@ everyone is welcome to contribute. patches, bug-fixes, new features
 7. push to your branch `git push origin feature_name`
 8. create an pull request
 
+<a name="meta"/>
 # meta
 
 * code: `git clone git://github.com/dscape/p.git`
@@ -66,6 +83,23 @@ everyone is welcome to contribute. patches, bug-fixes, new features
 * build: [![build status](https://secure.travis-ci.org/dscape/p.png)](http://travis-ci.org/dscape/pattern)
 
 `(oO)--',-` in [caos]
+
+<a name="license"/>
+# license
+
+copyright 2012 nuno job <nunojob.com> (oO)--',--
+
+licensed under the apache license, version 2.0 (the "license");
+you may not use this file except in compliance with the license.
+you may obtain a copy of the license at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+unless required by applicable law or agreed to in writing, software
+distributed under the license is distributed on an "as is" basis,
+without warranties or conditions of any kind, either express or implied.
+see the license for the specific language governing permissions and
+limitations under the license.
 
 [npm]: http://npmjs.org
 [issues]: http://github.com/dscape/p/issues
