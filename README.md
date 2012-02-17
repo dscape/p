@@ -5,7 +5,7 @@
 ``` js
 var insertAll = require('p');
 
-insertAll([], cb, cb);
+insertAll([], Function, function (cb) { cb(); });
 insertAll(function (l,cb) {
   var elem = l.shift(); // head
   insertElement(elem, function(err, elem) {
@@ -15,7 +15,7 @@ insertAll(function (l,cb) {
   });
 }); 
 
-insertAll([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], function() { 
+insertAll([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], function () { 
   console.log('done'); 
 });
 ```
@@ -34,10 +34,6 @@ when you used to do [this].
 
 1. minimize p.js
 2. load it into your webpage
-
-## samples
-
-some [samples] are available to help you get started. one that creates a list of top npm contributors, and another that gets a bunch of data from twitter and generates valid json.
 
 # roadmap
 
