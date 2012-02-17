@@ -4,26 +4,52 @@
 `pattern` is a way to do pattern matching in javascript that helps you do asynchronous iterations.
 
 ``` js
-var insertAll = require('p')
+var insert_all = require('p')
   , _
   ;
 
 // pretending we are doing an async call
-function insertElement(data, callback) {
+function insert_element(data, callback) {
   setTimeout(function() { callback(null, data); }, 100);
 }
 
-insertAll([], _, function (cb) { cb(); });
-insertAll(function (l,cb) {
+insert_all([], _, function (cb) { cb(); });
+insert_all(function (l,cb) {
   var elem = l.shift(); // head
-  insertElement(elem, function(err, elem) {
+  insert_element(elem, function(err, elem) {
     if(err) { return cb(err); }
     console.log(elem + ' inserted');
-    insertAll(l, cb);
+    insert_all(l, cb);
   });
 }); 
 
-insertAll([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], function () { 
+insert_all([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], function () { 
+  console.log('done'); 
+});
+```
+
+the first pattern in `pattern` sets the arity of the function to execute. if you then give it anything with those numbers of arguments it will assume it must be the function.
+
+``` js
+// first call sets arity #2
+insert_all([], _, function (cb) { cb(); });
+// _ is an undefined variable we declared on the top
+// the same as passing undefined
+// will match anything
+```
+
+the last thing to be registered should be the catch all
+
+``` js
+// same as insert_all(_, _, function ...
+insert_all(function (l,cb) {
+```
+
+when `pattern` finds a invocation where arguments.length matches arity it runs the functions.
+
+``` js
+// two arguments, arity #2. lets run!
+insert_all([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], function () { 
   console.log('done'); 
 });
 ```
@@ -46,17 +72,28 @@ insertAll([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], function () {
 1. minimize p.js
 2. load it into your webpage
 
+<a name="samples"/>
+## samples
+
+there are samples in the `samples` directory. check them out.
+
 <a name="disclaimer"/>
 ## disclaimer
 
-if you are not familiar with haskell and you love your javascript oo code you better look away right now. this pretty much breaks everything you love and care about in javascript.
+if you are not familiar with `haskell` and you love your javascript object oriented code you better look away right now. this pretty much breaks everything you love and care about in javascript
 
-`pattern` was made so i could learn some more javascript. it's slow, and certainly not web scale. this software does not obey laws, common best practices or even common sense. it does everything that is wrong in javascript; or at least attempts to. (suggestions are welcome)
+`pattern` was made so i could learn some more javascript. it's slow, and certainly not web scale
+
+this software does not obey laws, common best practices, or even common sense
+
+it does everything that is wrong in javascript; or at least attempts to (suggestions are welcome)
 
 i'll probably still use it anyway
 
 <a name="roadmap"/>
 # roadmap
+
+* point free programming **note** i'm just kidding.
 
 check [issues]
 

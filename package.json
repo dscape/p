@@ -15,9 +15,5 @@
   { "test"      :
     "./node_modules/mocha/bin/mocha -r should -t 10000 -s 2000  test/index.js"
   }
-, "engines"         : 
-  { "node"      : ">=0.4.0" 
-  , "firefox"   : ">=0.8.0"
-  , "chrome"    : ">=16.0.912"
-  }
+, "engines"     :  { "node"      : ">=0.4.0" }
 }

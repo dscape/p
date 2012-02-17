@@ -1,21 +1,23 @@
-var insertAll = require('./pattern'), _;
+var insert_all = require('../pattern')
+  , _
+  ;
 
 // pretending we are doing an async call
-function insertElement(data, callback) {
-  var timeout = Math.ceil(Math.random() * 3000);
-  setTimeout(function() { callback(null, data); }, timeout);
+function insert_element(data, callback) {
+  setTimeout(function() { callback(null, data); }, 
+    Math.ceil(Math.random() * 1000));
 }
 
-insertAll([], _, function (cb) { cb(); });
-insertAll(function (l,cb) {
+insert_all([], _, function (cb) { cb(); });
+insert_all(function (l,cb) {
   var elem = l.shift(); // head
-  insertElement(elem, function(err, elem) {
+  insert_element(elem, function(err, elem) {
     if(err) { return cb(err); }
     console.log(elem + ' inserted');
-    insertAll(l, cb);
+    insert_all(l, cb);
   });
 }); 
 
-insertAll([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], function() { 
+insert_all([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], function () { 
   console.log('done'); 
 });
