@@ -8,16 +8,16 @@ function insert_element(data, callback) {
     Math.ceil(Math.random() * 1000));
 }
 
-insert_all([], _, function (cb) { cb(); });
-insert_all(function (l,cb) {
+insert_all([], _, function finish(cb) { cb(); });
+insert_all(function catchall(l,cb) {
   var elem = l.shift(); // head
-  insert_element(elem, function(err, elem) {
+  insert_element(elem, function elem_cb(err, elem) {
     if(err) { return cb(err); }
     console.log(elem + ' inserted');
     insert_all(l, cb);
   });
 }); 
 
-insert_all([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], function () { 
+insert_all([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], function done() { 
   console.log('done'); 
 });

@@ -24,18 +24,17 @@
               ok = true; // set our flag to matching
               log('  ✔ ', s[i], '===', arguments[i]);
               j=0;
-              log('aa',arguments.length, (i+1))
-              if(arguments.length !== i+1) { continue ol; } }
+              if(arguments.length !== i+1) { log('  ⥁'); continue ol; } }
             else {  // if it doesnt match try next pattern in stack
               log('  ✗ ', s[i], '===', arguments[i]);
               // dont break and set ok to false if this is the last element
-              if(stack.length !== j+1) { ok = false; continue; } } }
-          if(stack.length === j+1 || arguments.length === i+1) {
+              if(stack.length!==j+1) { log('  ⥁'); ok = false; continue; } } }
+          //if(stack.length === j+1) {
             // decide on the function base ok if its a match or not
             var f = ok ? arguments[arguments.length-1] : s[s.length-1];
-            log('  ' + (ok ? 'λ' : 'ƒ'), f);
+            log('  ' + (ok ? 'λ' : 'ƒ'), f.name || f);
             // execute whatever is the last argument on last pattern of stack
-            return f.apply(this, [].slice.call(arguments,0)); } } }
+            return f.apply(this, [].slice.call(arguments,0)); } } //}
     } else {
       stack.push([].slice.call(arguments,0)); // initializing add pattern
       log('‣ ', [].slice.call(arguments,0));
