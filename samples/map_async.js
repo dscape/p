@@ -9,4 +9,3 @@ map(f, _, ac, function all(f, l, ac) {
 });
 
 map(function duplicate(x) { console.log(x*2); return x*2; }, [1,2,3], []);
-map(function plusone(x) { return x+1; }, [1,2,3], []);

@@ -1,60 +1,43 @@
 <a name="pattern"/>
 # pattern
 
-`pattern` is a way to do pattern matching in javascript that helps you do asynchronous iterations.
+`pattern` is a way to do pattern matching in javascript that helps you do asynchronous iterations
 
 ``` js
-var insert_all = require('p')
-  , _
-  ;
-
-// pretending we are doing an async call
-function insert_element(data, callback) {
-  setTimeout(function() { callback(null, data); }, 100);
-}
-
-insert_all([], _, function (cb) { cb(); });
-insert_all(function (l,cb) {
-  var elem = l.shift(); // head
-  insert_element(elem, function(err, elem) {
-    if(err) { return cb(err); }
-    console.log(elem + ' inserted');
-    insert_all(l, cb);
+// check `samples/nodetuts.js` for working code
+insert_all([], function () { console.log('done'); });
+insert_all(_, function (l) {
+  insert_element(l.shift(), function (elem) {
+    console.log('‣ ', elem);
+    insert_all(l);
   });
-}); 
-
-insert_all([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], function () { 
-  console.log('done'); 
 });
+
+insert_all([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 ```
 
-the first pattern in `pattern` sets the arity of the function to execute. if you then give it anything with those numbers of arguments it will assume it must be the function.
+the first pattern in `pattern` sets the arity of the function to execute
 
 ``` js
-// first call sets arity #2
-insert_all([], _, function (cb) { cb(); });
-// _ is an undefined variable we declared on the top
-// the same as passing undefined
-// will match anything
+// first call sets arity #1
+// when this condition is met it logs the message done
+insert_all([], function () { console.log('done'); });
 ```
 
-the last thing to be registered should be the catch all
+then we normally register the iteration pattern:
+``` js
+// var _; was set in the top, value is undefined
+insert_all(_, function (l) {
+```
+
+if you then call `insert_all` where the argument count matches arity, `pattern` knows its time to execute
 
 ``` js
-// same as insert_all(_, _, function ...
-insert_all(function (l,cb) {
+// one argument, arity #1. run forest, run.
+insert_all([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 ```
 
-when `pattern` finds a invocation where arguments.length matches arity it runs the functions.
-
-``` js
-// two arguments, arity #2. lets run!
-insert_all([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], function () { 
-  console.log('done'); 
-});
-```
-
-[this] is what you normally would do.
+[this] is the code you would normally write to do the same thing in javascript
 
 <a name="installation"/>
 # installation
@@ -66,16 +49,10 @@ insert_all([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], function () {
 2. `npm install p`
 3. `var p = require('p');`
 
-<a name="browser"/>
-## browser
-
-1. minimize p.js
-2. load it into your webpage
-
 <a name="samples"/>
 ## samples
 
-there are samples in the `samples` directory. check them out.
+there are samples in the `samples` directory. check them out
 
 <a name="disclaimer"/>
 ## disclaimer
@@ -93,9 +70,7 @@ i'll probably still use it anyway
 <a name="roadmap"/>
 # roadmap
 
-* point free programming **note** i'm just kidding.
-
-check [issues]
+[pointfree] style (**note** i'm just kidding)
 
 <a name="contribute"/>
 # contribute
@@ -143,3 +118,4 @@ limitations under the license.
 [caos]: http://caos.di.uminho.pt/
 [samples]: https://github.com/dscape/p/tree/master/samples
 [this]: https://gist.github.com/00663e475092e55ac66c#file_howitis.js
+[pointfree]: http://www.haskell.org/haskellwiki/Pointfree
