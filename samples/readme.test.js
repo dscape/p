@@ -1,10 +1,11 @@
+/* CAT */
 var insert_all = require('../pattern'), _;
 
 function insert_element(data, callback) {
-  setTimeout(function() { callback(data); }, Math.ceil(Math.random() * 1000));
+  setTimeout(function() { callback(data); }, Math.ceil(Math.random() * 10));
 }
 
-insert_all([], function () { console.log('done'); });
+insert_all([], function () { console.error('CAT'); });
 insert_all(_, function (l) {
   insert_element(l.shift(), function (elem) {
     console.log('‣ ', elem);

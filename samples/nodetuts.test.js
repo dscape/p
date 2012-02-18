@@ -1,9 +1,10 @@
+/* done */
 var insert_all = require('../pattern'), _;
 
 // pretending we are doing an async call
 function insert_element(data, callback) {
   setTimeout(function() { callback(data); }, 
-    Math.ceil(Math.random() * 1000));
+    Math.ceil(Math.random() * 100));
 }
 
 insert_all([], _, function stop(l,cb) { cb(); });
@@ -15,4 +16,4 @@ insert_all(_, _, function catchall(l, cb) {
 });
 
 insert_all([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 
-  function done() { console.log('done'); });
+  function done() { console.error('done'); });
