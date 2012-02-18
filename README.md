@@ -25,6 +25,7 @@ insert_all([], function () { console.log('done'); });
 ```
 
 then we normally register the iteration pattern:
+
 ``` js
 // var _; was set in the top, value is undefined
 insert_all(_, function (l) {
@@ -33,7 +34,8 @@ insert_all(_, function (l) {
 if you then call `insert_all` where the argument count matches arity, `pattern` knows its time to execute
 
 ``` js
-// one argument, arity #1. run forest, run.
+// one argument, arity #1
+// run forest, run
 insert_all([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 ```
 
@@ -111,7 +113,7 @@ unless required by applicable law or agreed to in writing, software
 distributed under the license is distributed on an "as is" basis,
 without warranties or conditions of any kind, either express or implied.
 see the license for the specific language governing permissions and
-limitations under the license.
+limitations under the license
 
 [npm]: http://npmjs.org
 [issues]: http://github.com/dscape/p/issues
