@@ -9,7 +9,7 @@ function insert_element(data, callback) {
     Math.ceil(Math.random() * 1000));
 }
 
-function done() { console.log('done'); }
+function done(l) { console.log('done'); }
 
 function any_generator (name,context) {
   return function (l) {

@@ -2,7 +2,7 @@ var map = require('../pattern')
   , _, f, ac
   ;
 
-map(f, [], ac, function done(_,_,ac) { return console.log(ac); });
+map(f, [], ac, function done(_, _, ac) { return console.log(ac); });
 map(f, _, ac, function all(f, l, ac) {
   ac.push(f(l.shift())); // head
   map(f, l, ac); // l is now tail
