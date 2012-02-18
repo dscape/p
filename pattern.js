@@ -11,27 +11,29 @@
   function p() {
     if(!arity) { arity = arguments.length-1; } // set arity in first invok.
     if(arity===arguments.length) { // # arguments match arity, execute
-      var ok = false, j = 0;
-      for(var i in arguments) { // for each argument
-        while(j<stack.length) { // for each pattern in the stack
+      var ok = false;
+      ol: for(var i=0; i<arguments.length; i++) { // for each argument
+        il: for(var j=0; j<stack.length; j++) { // for pattern in the stack
           var s = stack[j]; // get the current pattern
-          log('α ', j);
-          log('  ░ ', s);
-          log('  •', [].slice.call(arguments,0));
-          j++;
-          if(s[i]) { // if there's is something in this position for pattern
+          log('α ', i, j);
+          log('  ░ ', s, s[i]);
+          log('  σ ', s.length);
+          log('  • ', [].slice.call(arguments,0));
+          if(s.length > i) { // if there's something in this pos for pattern
             if(match(s[i], arguments[i])) { // if we have a match
               ok = true; // set our flag to matching
               log('  ✔ ', s[i], '===', arguments[i]);
-              continue; } // continue iterating stack
+              j=0;
+              log('aa',arguments.length, (i+1))
+              if(arguments.length !== i+1) { continue ol; } }
             else {  // if it doesnt match try next pattern in stack
               log('  ✗ ', s[i], '===', arguments[i]);
               // dont break and set ok to false if this is the last element
-              if(stack.length !== j) { ok = false; break; } } }
-          if(stack.length === j) { // if we are out of stack
+              if(stack.length !== j+1) { ok = false; continue; } } }
+          if(stack.length === j+1 || arguments.length === i+1) {
             // decide on the function base ok if its a match or not
             var f = ok ? arguments[arguments.length-1] : s[s.length-1];
-            log('  λ', f);
+            log('  ' + (ok ? 'λ' : 'ƒ'), f);
             // execute whatever is the last argument on last pattern of stack
             return f.apply(this, [].slice.call(arguments,0)); } } }
     } else {
