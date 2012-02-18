@@ -52,12 +52,12 @@ insert_all([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 3. `var p = require('p');`
 
 <a name="samples"/>
-## samples
+# samples
 
 there are samples in the `samples` directory. check them out
 
 <a name="disclaimer"/>
-## disclaimer
+# disclaimer
 
 if you are not familiar with `haskell` and you love your javascript object oriented code you better look away right now. this pretty much breaks everything you love and care about in javascript
 
