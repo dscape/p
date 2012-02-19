@@ -2,6 +2,8 @@
   var stack = [], arity, DEBUG = process.env.DEBUG;
   function log() { if(DEBUG) console.log.apply(this,arguments); }
   function match(pattern, value) {
+    if(pattern === Error) { 
+      return value && value.name.indexOf('Error') !== -1;}
     if(pattern === undefined) return true;
     if(typeof pattern === 'object')
       return JSON.stringify(pattern) === JSON.stringify(value);
