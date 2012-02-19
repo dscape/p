@@ -1,9 +1,10 @@
-var map = require('../pattern')
-  , mapa = require('../pattern')
-  , zip_with = require('../pattern')
-  , filtera = require('../pattern')
-  , maybe = require('../pattern')
-  , foldl = require('../pattern')
+var p = require('../pattern')
+  , map = p()
+  , mapa = p()
+  , zip_with = p()
+  , filtera = p()
+  , maybe = p()
+  , foldl = p()
   , _, f, ac, l, l1, l2, cb, errcb, z
   ;
 

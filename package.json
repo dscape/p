@@ -1,7 +1,7 @@
 { "name"        : "p"
 , "description" : "pattern matching in javascript for asyncronous iteration"
 , "author"      : "nuno job <nunojobpinto@gmail.com> (http://nunojob.com/)"
-, "version"     : "0.1.1"
+, "version"     : "0.2.0"
 , "main"        : "./pattern.js"
 , "homepage"    : "https://github.com/dscape/p"
 , "repository"  : { "type": "git", "url": "http://github.com/dscape/p.git" }

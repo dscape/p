@@ -1,5 +1,5 @@
 /* [ 2, 3, 4 ] */
-var map = require('../pattern')
+var map = require('../pattern')()
   , _, f, ac
   ;
 

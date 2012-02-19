@@ -1,5 +1,5 @@
-(function () { // stack refers to registered patterns
-  var stack = [], arity, DEBUG = process.env.DEBUG;
+(function (pattern) { // stack refers to registered patterns
+  var DEBUG = typeof process !== 'undefined' && process.env.DEBUG;
   function log() { if(DEBUG) console.log.apply(this,arguments); }
   function match(pattern, value) {
     if(pattern === Error) { 
@@ -8,7 +8,8 @@
     if(typeof pattern === 'object')
       return JSON.stringify(pattern) === JSON.stringify(value);
     return pattern.toString() === value.toString(); }
-  function p() {
+  function p() { var stack = [], arity;
+    return function () {
     if(!arity) { arity = arguments.length-1; } // set arity in first invok.
     if(arity===arguments.length) { // # arguments match arity, execute
       var j = 0, i=0; // we need explicit control over vars
@@ -36,8 +37,6 @@
     } else {
       stack.push([].slice.call(arguments,0)); // initializing add pattern
       log('‣ ', [].slice.call(arguments,0));
-    } } // dont cache, each require is a new inst.
-  if(require.cache[module.id]) // make isaac nervous
-    delete require.cache[module.id]; // make everyone hate me
-  module.exports = exports = p; // export our ""constructor""
+    } }; } // dont cache, each require is a new inst.
+  typeof exports === 'undefined' ? (window.pattern = p) : (module.exports = p);
 })();

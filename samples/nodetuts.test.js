@@ -1,5 +1,5 @@
 /* done */
-var insert_all = require('../pattern'), _;
+var insert_all = require('../pattern')(), _;
 
 // pretending we are doing an async call
 function insert_element(data, callback) {

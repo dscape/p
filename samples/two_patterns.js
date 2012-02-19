@@ -1,5 +1,5 @@
-var p1 = require('../pattern')
-  , p2 = require('../pattern')
+var p1 = require('../pattern')()
+  , p2 = require('../pattern')()
   , _
   ;
 

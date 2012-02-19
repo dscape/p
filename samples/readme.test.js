@@ -1,5 +1,5 @@
 /* CAT */
-var insert_all = require('../pattern'), _;
+var insert_all = require('../pattern')(), _;
 
 function insert_element(data, callback) {
   setTimeout(function() { callback(data); }, Math.ceil(Math.random() * 10));
