@@ -9,8 +9,8 @@
   function p() {
     if(!arity) { arity = arguments.length-1; } // set arity in first invok.
     if(arity===arguments.length) { // # arguments match arity, execute
-      var j = 0; // we need explicit control over j, cant be reset by :il
-      ol: for(var i=0; i<arguments.length; i++) { // for each argument
+      var j = 0, i=0; // we need explicit control over vars
+      ol: for(; i<arguments.length; i++) { // for each argument
         il: for(; j<stack.length; j++) { // for pattern in the stack
           var s = stack[j]; // get the current pattern
           log('α ', i, j);
@@ -23,8 +23,9 @@
               if(arguments.length !== i+1) { log('  ⥁'); continue ol; } }
             else {  // if it doesnt match try next pattern in stack
               log('  ✗ ', s[i], '===', arguments[i]);
+              i=0;
               // dont break and set ok to false if this is the last element
-              if(stack.length!==j+1) { j=0; log('  ⥁'); continue; } } }
+              if(stack.length!==j+1) { log('  ⥁'); continue; } } }
          var f = s[s.length-1];
          log('  ' + (typeof f === 'function' ? 'ƒ' : 'λ'), f.name || f);
          // execute whatever is the last argument on last pattern of stack

@@ -29,7 +29,7 @@ mapa(f, l, ac, cb,
 zip_with(f, [], l2, ac, cb, function emptyl1(f, l1, l2, ac, cb) { cb(ac); });
 zip_with(f, l1, [], ac, cb, function emptyl2(f, l1, l2, ac, cb) { cb(ac); });
 zip_with(f, l1, l2, ac, cb, function all(f, l1, l2, ac, cb) {
-  ac.push(f(l1.shift, l2.shift));
+  ac.push(f(l1.shift(), l2.shift()));
   zip_with(f, l1, l2, ac, cb);
 });
 
