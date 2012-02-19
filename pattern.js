@@ -1,4 +1,4 @@
-(function (pattern) { // stack refers to registered patterns
+(function () { // stack refers to registered patterns
   var DEBUG = typeof process !== 'undefined' && process.env.DEBUG;
   function log() { if(DEBUG) console.log.apply(this,arguments); }
   function match(pattern, value) {
@@ -38,5 +38,5 @@
       stack.push([].slice.call(arguments,0)); // initializing add pattern
       log('‣ ', [].slice.call(arguments,0));
     } }; } // dont cache, each require is a new inst.
-  typeof exports === 'undefined' ? (window.pattern = p) : (module.exports = p);
+  typeof exports === 'undefined' ? (window.pattern=p) : (module.exports = p);
 })();
