@@ -26,7 +26,7 @@ tests.forEach(
       i++;
       buffer = buffer.replace(/^\s+|\s+$/g,"");
       var ok = buffer === output;
-      console.log(c(ok ? '✔' : '✗', ok ? 'green' : 'red'),f);
+      console.log(c(ok ? '✔' : '✗', ok ? 'green' : 'red'), 'samples/'+f);
       if(!ok) {
         return_code=1;
         console.log(c('  ♯', 'cyan'), buffer);
