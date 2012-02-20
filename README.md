@@ -1,7 +1,7 @@
 <a name="pattern"/>
 # pattern
 
-`pattern` is a way to do pattern matching in javascript that helps you do asynchronous iterations
+`pattern` is a way to do pattern matching in javascript that helps you with asynchronous iterations
 
 ``` js
 // check `samples/nodetuts.js` for working code
@@ -55,19 +55,6 @@ insert_all([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 # samples
 
 there are samples in the `samples` directory. check them out
-
-<a name="disclaimer"/>
-# disclaimer
-
-if you are not familiar with `haskell` and you love your javascript object oriented code you better look away right now. this pretty much breaks everything you love and care about in javascript
-
-`pattern` was made so i could learn some more javascript. it's slow, and certainly not web scale
-
-this software does not obey laws, common best practices, or even common sense
-
-it does everything that is wrong in javascript; or at least attempts to (suggestions are welcome)
-
-i'll probably still use it anyway
 
 <a name="roadmap"/>
 # roadmap
