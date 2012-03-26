@@ -24,7 +24,7 @@ the first pattern in `pattern` sets the arity of the function to execute
 insert_all([], function () { console.log('done'); });
 ```
 
-then we normally register the iteration pattern:
+then we normally register the iteration pattern
 
 ``` js
 // var _; was set in the top, value is undefined
