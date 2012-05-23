@@ -1,7 +1,7 @@
 <a name="pattern"/>
 # pattern
 
-`pattern` is a way to do pattern matching in javascript that helps you with asynchronous iterations
+`pattern` is a way to do pattern matching in javascript that helps you with asynchronous iterations 
 
 ``` js
 // check `samples/nodetuts.js` for working code
