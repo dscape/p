@@ -1,4 +1,3 @@
-<a name="pattern"/>
 # pattern
 
 `pattern` is a way to do pattern matching in javascript that helps you with asynchronous iterations 
@@ -57,27 +56,22 @@ insert_all([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 
 [this] is the code you would normally write to do the same thing in javascript
 
-<a name="installation"/>
 # installation
 
-<a name="node"/>
 ## node.js
 
 1. install [npm]
 2. `npm install p`
 3. `var p = require('p');`
 
-<a name="samples"/>
 # samples
 
 there are samples in the `samples` directory. check them out
 
-<a name="roadmap"/>
 # roadmap
 
 [pointfree] style (**note** i'm just kidding)
 
-<a name="contribute"/>
 # contribute
 
 everyone is welcome to contribute. patches, bug-fixes, new features
@@ -91,7 +85,6 @@ everyone is welcome to contribute. patches, bug-fixes, new features
 7. push to your branch `git push origin feature_name`
 8. create an pull request
 
-<a name="meta"/>
 # meta
 
 * code: `git clone git://github.com/dscape/p.git`
@@ -101,7 +94,6 @@ everyone is welcome to contribute. patches, bug-fixes, new features
 
 `(oO)--',-` in [caos]
 
-<a name="license"/>
 # license
 
 copyright 2012 nuno job <nunojob.com> `(oO)--',--`
